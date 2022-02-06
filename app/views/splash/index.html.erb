@@ -1,7 +1,7 @@
 <main>
   <h1>Budget App</h1>
   <div>
-    <button>LOG IN</button>
-    <button>SIGN UP</button>
+    <%= button_to 'LOG IN', new_user_session_url, method: :get %>
+    <%= button_to 'SIGN UP', new_user_registration_url, method: :get %>
   </div>
 </main>
