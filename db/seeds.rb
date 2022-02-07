@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-mark = User.create!(name: 'dave', email: 'dave@test.com', password: 'dave123')
+mark = User.create!(name: 'mike', email: 'mike@test.com', password: 'mike123')
+dave = User.create!(name: 'dave', email: 'dave@test.com', password: 'dave123')
 
 entertainment = mark.categories.create!(name: 'Entertainment', icon: 'tv')
+shopping = dave.categories.create!(name: 'Shopping', icon: 'basket')
 record = mark.records.create!(name: 'McDonalds', ammount: 3.79)
 
-CategoryRecord.create!(category: entertainment, record: record)
+CategoriesRecord.create!(category: entertainment, record: record)
