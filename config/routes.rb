@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'splash#index'
 
   resources :categories do
-    resources :records, only: [:index, :show]
+    resources :records
   end
 
 end

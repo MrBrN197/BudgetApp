@@ -6,7 +6,6 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     # @categories = Category.all
-    puts "\n\n\nSize:", @categories.size, "\n\n\n"
   end
 
   # GET /categories/1 or /categories/1.json

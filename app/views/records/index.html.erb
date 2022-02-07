@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Records</h1>
+
+<div id="records">
+  <% @records.each do |record| %>
+    <%= render record %>
+    <p>
+      <%= link_to "Show this record", [@category, record] %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "New record", new_category_record_path %>
+</div>
+<div>
+  <%= link_to "Back to Categories", categories_path(@category) %>
+</div>
