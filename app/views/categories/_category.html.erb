@@ -1,6 +1,6 @@
-<div id="<%= dom_id category %>">
+<%= link_to category, class: 'category', id: (dom_id category) do %>
   <p>
     <strong>Name:</strong>
     <%= category.name %>
   </p>
-</div>
+<% end %>
