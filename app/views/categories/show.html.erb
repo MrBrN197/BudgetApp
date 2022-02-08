@@ -3,9 +3,9 @@
 <%= render @category %>
 
 <div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-  <%= link_to "View Transactions", category_records_path(@category) %>
+  <%= link "Edit this category", edit_category_path(@category) %> |
+  <%= link "Back to categories", categories_path %>
+  <%= link "View Transactions", category_records_path(@category) %>
 
   <%= button_to "Destroy this category", @category, method: :delete %>
 </div>

@@ -5,7 +5,8 @@
 <div class="categories">
   <% @categories.each do |category| %>
     <%= render category %>
+    <%= render category.first_three_transactions %>
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<%= link "New category", new_category_path %>

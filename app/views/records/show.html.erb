@@ -3,8 +3,8 @@
 <%= render @record %>
 
 <div>
-  <%= link_to "Edit this record", edit_category_record_path(@record) %> |
-  <%= link_to "Back to records", category_records_path(@category) %>
+  <%= link "Edit this record", edit_category_record_path(@record) %> |
+  <%= link "Back to records", category_records_path(@category) %>
 
   <%= button_to "Destroy this record", [@category, @record], method: :delete %>
 </div>

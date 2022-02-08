@@ -5,4 +5,10 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :user, presence: true
+
+
+  def first_three_transactions
+    records.limit(3)
+  end
+
 end

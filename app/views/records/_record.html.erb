@@ -1,4 +1,4 @@
-<div id="<%= dom_id record %>">
+<%= link_to id: (dom_id record) do %>
   <p>
     <strong>Name:</strong>
     <%= record.name %>
@@ -9,4 +9,4 @@
     <%= record.ammount %>
   </p>
 
-</div>
+<% end %>
