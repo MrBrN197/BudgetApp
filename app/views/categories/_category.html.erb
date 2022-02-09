@@ -1,6 +1,13 @@
-<%= link_to category, class: 'category', id: (dom_id category) do %>
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-<% end %>
+<div class="category-box">
+  <div class="category">
+    <p>
+      <strong>Name:</strong>
+      <%= category.name %>
+    </p>
+  </div>
+  <% if category.records.count.positive? %>
+    <ul class="records">
+      <% render category.first_three_transactions, layout: 'box' %>
+    </ul>
+  <% end %>
+</div>
