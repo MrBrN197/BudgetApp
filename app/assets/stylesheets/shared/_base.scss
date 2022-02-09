@@ -31,14 +31,21 @@ input[type=submit] {
   border: none;
   padding: 0.4em 0.6em;
   cursor: pointer;
-  background-color: colors.$second;
+  background-color: colors.$main;
+  border-radius: 0.2em;
   color: white;
   font-size: 1rem;
+  transition: background-color 120ms;
+
+  &:hover {
+    background-color: rgb(53, 147, 255);
+  }
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 .link {
