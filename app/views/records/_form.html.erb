@@ -24,4 +24,9 @@
   <div>
     <%= form.submit %>
   </div>
+
+  <div>
+    <%= form.select :category, current_user.categories.map(&:name) %>
+  </div>
+
 <% end %>

@@ -12,6 +12,11 @@ body {
   color: colors.$text;
 }
 
+#main {
+  margin-inline: 0.5rem;
+  margin-top: 0.8rem;
+}
+
 header {
   background-color: colors.$main;
   color: white;
