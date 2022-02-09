@@ -4,10 +4,9 @@
 
 <div id="records">
   <% @records.each do |record| %>
-    <%= render record %>
-    <p>
-      <%= link "Show this record", [@category, record] %>
-    </p>
+    <%= link_to [@category, record] do %>
+      <%= render record %>
+    <% end %>
   <% end %>
 </div>
 
