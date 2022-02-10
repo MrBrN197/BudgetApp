@@ -1,9 +1,9 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :category
-  load_and_authorize_resource :record, through: :category, except: :create
+  load_and_authorize_resource :record, through: :category, except: [:create, :new]
   # before_action :set_record, only: %i[show edit update destroy]
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   # GET /records or /records.json
   def index
@@ -25,13 +25,12 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    authorize! @category
+    authorize! :manage, @category
     @record = current_user.records.new(record_params)
-    cat_ids = create_params[:categories].slice(1..-1) || []
+    cat_ids = create_params[:categories][:ids].slice(1..-1) || []
     categories = current_user.categories.find(cat_ids)
     @record.categories = categories
-    p @record.categories
-    
+
     respond_to do |format|
       if @record.save
         format.html { redirect_to category_records_path(@category), notice: 'Record was successfully created.' }
@@ -73,6 +72,6 @@ class RecordsController < ApplicationController
   end
 
   def create_params
-    params.require(:record).permit(:name, :ammount, categories: [])
+    params.require(:record).permit(:name, :ammount, categories: [ ids: [] ])
   end
 end

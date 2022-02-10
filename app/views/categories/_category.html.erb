@@ -5,7 +5,7 @@
     <% end %>
     <div class="text">
       <h3><%= category.name %></h3>
-      <p><%= category.created_at %></p>
+      <p><%= category.created_at.class %></p>
     </div>
     <strong><p class="price">$<%= category.records.sum(:ammount)  %> </p></strong>
   </div>

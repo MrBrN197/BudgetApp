@@ -60,28 +60,36 @@ RSpec.describe '/records', type: :request do
   end
 
   describe 'POST /create' do
+    let(:valid_with_categories) do
+      { name: 'Goyard Croisière', ammount: 2_600, categories: { ids: ['', @category.id]}}
+    end
+
+    let(:invalid_with_categories) do
+      { name: '', ammount: nil, categories: { ids: [] }}
+    end
+
     context 'with valid parameters' do
       it 'creates a new Record' do
         expect do
-          post category_records_url(@category), params: { record: valid_attributes }
+          post category_records_url(@category), params: { record: valid_with_categories }
         end.to change(Record, :count).by(1)
       end
 
       it 'redirects to the created record' do
-        post category_records_url(@category), params: { record: valid_attributes }
-        expect(response).to redirect_to(category_record_url(@category, Record.last))
+        post category_records_url(@category), params: { record: valid_with_categories }
+        expect(response).to redirect_to(category_records_path(@category))
       end
     end
 
     context 'with invalid parameters' do
       it 'does not create a new Record' do
         expect do
-          post category_records_url(@category, format: :json), params: { record: invalid_attributes }
+          post category_records_url(@category, format: :json), params: { record: invalid_with_categories }
         end.to change(Record, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post category_records_url(@category), params: { record: invalid_attributes }
+        post category_records_url(@category), params: { record: invalid_with_categories }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
