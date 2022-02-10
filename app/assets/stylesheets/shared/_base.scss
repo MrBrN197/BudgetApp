@@ -1,4 +1,5 @@
-@use 'colors';
+@use 'colors' as colors;
+
 @forward 'colors';
 
 * {
@@ -28,7 +29,6 @@ header {
   .icon {
     font-size: 1.6rem;
   }
-
 }
 
 button,
@@ -56,10 +56,11 @@ a {
 .link {
   position: relative;
   $size: 2px;
+
   margin-bottom: $size;
   display: inline-block;
   cursor: pointer;
-  
+
   &::after {
     position: absolute;
     content: '';
@@ -77,5 +78,4 @@ a {
       background-color: peru;
     }
   }
-
 }
