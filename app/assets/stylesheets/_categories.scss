@@ -16,6 +16,7 @@
   gap: 2rem;
   justify-content: space-between;
   padding-inline: 1rem;
+  align-items: center;
 
   .icon {
     display: block;
@@ -23,8 +24,13 @@
     border-radius: 0.4rem;
   }
 
+  .text {
 
-  p {
+  }
+
+  .price {
+    min-width: 6rem;
+    padding-right: 2rem;
     font-size: 1.4rem;
   }
 

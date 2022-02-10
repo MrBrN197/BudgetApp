@@ -1,12 +1,13 @@
 <div class="category-box">
   <div class="category">
-    <% if category.icon.representable? %>
+    <% if category.icon.attached? %>
       <%= image_tag category.icon, class: 'icon' %>
     <% end %>
-    <p>
-      <strong>Name:</strong>
-      <%= category.name %>
-    </p>
+    <div class="text">
+      <h3><%= category.name %></h3>
+      <p><%= category.created_at %></p>
+    </div>
+    <strong><p class="price">$<%= category.records.sum(:ammount)  %> </p></strong>
   </div>
   <% if category.records.count.positive? %>
     <ul class="records">
