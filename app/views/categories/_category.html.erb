@@ -1,5 +1,8 @@
 <div class="category-box">
   <div class="category">
+    <% if category.icon.representable? %>
+      <%= image_tag category.icon, class: 'icon' %>
+    <% end %>
     <p>
       <strong>Name:</strong>
       <%= category.name %>

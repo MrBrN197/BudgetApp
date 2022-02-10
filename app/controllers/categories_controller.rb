@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
-    @category = Category.new(**category_params, user: current_user)
+    @category = current_user.categories.new(category_params)
 
     respond_to do |format|
       if @category.save
@@ -66,6 +66,6 @@ class CategoriesController < ApplicationController
   # end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :icon)
   end
 end
