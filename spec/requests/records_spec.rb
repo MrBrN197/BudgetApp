@@ -61,11 +61,11 @@ RSpec.describe '/records', type: :request do
 
   describe 'POST /create' do
     let(:valid_with_categories) do
-      { name: 'Goyard Croisière', ammount: 2_600, categories: { ids: ['', @category.id]}}
+      { name: 'Goyard Croisière', ammount: 2_600, categories: { ids: ['', @category.id] } }
     end
 
     let(:invalid_with_categories) do
-      { name: '', ammount: nil, categories: { ids: [] }}
+      { name: '', ammount: nil, categories: { ids: [] } }
     end
 
     context 'with valid parameters' do

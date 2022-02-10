@@ -10,18 +10,17 @@ module ApplicationHelper
     }
   end
 
-
   def link2(*args, **kwargs)
     if block_given?
       link_to(*args, **kwargs) do
-        "<code></code>"
+        '<code></code>'
       end
     else
       link_to(*args, **kwargs)
     end
   end
 
-  def link(body, *args, **kwargs, &block)
+  def link(body, *args, **kwargs)
     raise ArgumentError.new, '\'link\' method does not take a block' if block_given?
 
     link_to(*args, **kwargs) do

@@ -1,17 +1,15 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :category
-  load_and_authorize_resource :record, through: :category, except: [:create, :new]
+  load_and_authorize_resource :record, through: :category, except: %i[create new]
   # before_action :set_record, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token
 
   # GET /records or /records.json
-  def index
-  end
+  def index; end
 
   # GET /records/1 or /records/1.json
-  def show
-  end
+  def show; end
 
   # GET /records/new
   def new
@@ -20,8 +18,7 @@ class RecordsController < ApplicationController
   end
 
   # GET /records/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /records or /records.json
   def create
@@ -72,6 +69,6 @@ class RecordsController < ApplicationController
   end
 
   def create_params
-    params.require(:record).permit(:name, :ammount, categories: [ ids: [] ])
+    params.require(:record).permit(:name, :ammount, categories: [ids: []])
   end
 end
