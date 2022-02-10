@@ -1,24 +1,57 @@
-# README
+# Budget App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> An application about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
+---
 
-Things you may want to cover:
+#🔗 [Live Demo](https://thawing-plains-76650.herokuapp.com/)
 
-* Ruby version
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby
+- Ruby on Rails
+- RSpec
+- CapyBara
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+```
+git clone git@github.com:Gambit142/RecipeApp.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+and then run
 
-* Deployment instructions
+```
+bundle install
+```
 
-* ...
+## Development
+
+start of by creating the database and running migrations using
+`bin/rails db:setup`
+
+to start the server run `bin/rails s`
+
+## Testing
+to test simply run `rspec spec`
+
+
+👤 **Brian Orora**
+
+- GitHub: [@MrBrN197](https://github.com/MrBrN197)
+- Twitter: [@MrBrN197](https://twitter.com/MrBrN197)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/orora-brian/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
