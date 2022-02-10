@@ -35,6 +35,6 @@ module BudgetApp
     config.generators.system_tests = nil
 
     ### Logging configuration
-    config.log_level = :warn
+    # config.log_level = :warn
   end
 end

@@ -1,8 +1,9 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :category
-  load_and_authorize_resource :record, through: :category
+  load_and_authorize_resource :record, through: :category, except: :create
   # before_action :set_record, only: %i[show edit update destroy]
+  # skip_before_action :verify_authenticity_token
 
   # GET /records or /records.json
   def index
@@ -15,6 +16,7 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    @category = Category.find(params[:category_id])
   end
 
   # GET /records/1/edit
@@ -23,12 +25,16 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    @record = Record.new(**record_params, user: current_user)
-
+    authorize! @category
+    @record = current_user.records.new(record_params)
+    cat_ids = create_params[:categories].slice(1..-1) || []
+    categories = current_user.categories.find(cat_ids)
+    @record.categories = categories
+    p @record.categories
+    
     respond_to do |format|
       if @record.save
-        CategoriesRecord.create!(category: @category, record: @record)
-        format.html { redirect_to [@category, @record], notice: "Record was successfully created." }
+        format.html { redirect_to category_records_path(@category), notice: 'Record was successfully created.' }
         format.json { render :show, status: :created, location: @record }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -62,13 +68,11 @@ class RecordsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  # def set_record
-  #   @record = Record.find(params[:id])
-  # end
-
-  # Only allow a list of trusted parameters through.
   def record_params
     params.require(:record).permit(:name, :ammount)
+  end
+
+  def create_params
+    params.require(:record).permit(:name, :ammount, categories: [])
   end
 end

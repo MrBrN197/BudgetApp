@@ -18,15 +18,17 @@
 
   <div>
     <%= form.label :ammount, style: "display: block" %>
-    <%= form.text_field :ammount %>
+    <%= form.number_field :ammount %>
+  </div>
+
+  <div>
+    <%= form.fields_for :categories do |f| %>
+      <%= f.collection_check_boxes  :ids, current_user.categories, :id, :name %>
+    <% end %>
   </div>
 
   <div>
     <%= form.submit %>
-  </div>
-
-  <div>
-    <%= form.select :category, current_user.categories.map(&:name) %>
   </div>
 
 <% end %>
