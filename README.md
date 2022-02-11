@@ -55,3 +55,5 @@ Feel free to check the [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+
+Credit to **[Gregoire Vella on Behance](https://www.behance.net/gregoirevella)**, the author of [the original design](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
