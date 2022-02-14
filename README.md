@@ -18,7 +18,7 @@
 To get a local copy up and running follow these simple example steps.
 
 ```
-git clone git@github.com:Gambit142/RecipeApp.git
+git clone git@github.com:MrBrN197/RecipeApp.git
 ```
 
 and then run
