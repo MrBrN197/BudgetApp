@@ -1,0 +1,81 @@
+@use 'colors' as colors;
+
+@forward 'colors';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: whitesmoke;
+  color: #434b54;
+}
+
+#main {
+  margin-inline: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+header {
+  background-color: #3778c2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+
+  .icon {
+    font-size: 1.6rem;
+  }
+}
+
+button,
+input[type=submit] {
+  border: none;
+  padding: 0.4em 0.6em;
+  cursor: pointer;
+  background-color: #3778c2;
+  border-radius: 0.2em;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 120ms;
+
+  &:hover {
+    background-color: rgb(53, 147, 255);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.link {
+  position: relative;
+  $size: 2px;
+
+  margin-bottom: $size;
+  display: inline-block;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    height: $size;
+    transition: background-color 120ms;
+    bottom: -$size;
+  }
+
+  &:hover {
+    background-color: rgb(233, 199, 165);
+
+    &::after {
+      background-color: peru;
+    }
+  }
+}

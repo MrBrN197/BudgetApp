@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to category_records_path(@category), class: 'category', id: (dom_id @category) do %>
+  <%= render @category %>
+<% end %>
+
+<div>
+  <%= link "Edit this category", edit_category_path(@category) %>
+  <%= link "View Transactions", category_records_path(@category) %>
+
+  <%= button_to "Destroy this category", @category, method: :delete %>
+</div>

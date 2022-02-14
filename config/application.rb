@@ -33,5 +33,8 @@ module BudgetApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    ### Logging configuration
+    # config.log_level = :warn
   end
 end
